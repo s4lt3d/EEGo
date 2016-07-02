@@ -4,6 +4,5 @@ package main
 
 func main() {
     GetServer()
-    TestJSON()
     //fmt.Println(AdvisorTemplate)
 }
