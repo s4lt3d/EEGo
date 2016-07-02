@@ -10,32 +10,6 @@ import ("fmt"
         "bytes"
         "encoding/json")
 
-type defaultParams struct {
-    Username string `json:"username"`
-    AI_Key string   `json:"ai_key"`
-    Server string   `json:"server"`
-    ApiFunction string `json:"api_function"`
-}
-
-type serverParams struct {
-    defaultParams
-}
-
-type ServerInfo struct {
-    Server struct {
-        RoundNum int `json:"round_num"`
-        ResetStart int `json:"reset_start"`
-        ResetEnd int `json:"reset_end"`
-        TurnRate int `json:"turn_rate"`
-        CountriesAllowed string `json:"countries_allowed"`
-        AliveCount int `json:"alive_count"`
-        CnumList struct {
-            Alive []int `json:"alive"`
-            Dead []interface{} `json:"dead"`
-        } `json:"cnum_list"`
-        Time int `json:"time"`
-    } `json:"SERVER_INFO"`
-}
 
 // ****************************************************************************
 // doPost - All web communication for the game goes this this function
@@ -78,4 +52,26 @@ func GetServer() {
     _ = json.Unmarshal([]byte(body), &server)
 
     fmt.Println(server)
+}
+
+
+func GetAdvisor(cnum int) {
+    s := advisorParams{ 
+            Cnum: cnum,
+            defaultParams: defaultParams {
+                Username: "salted", 
+                AI_Key: "49ee125ad5e9a3b81dfb771ac0d3d2fb", 
+                Server: "ai", 
+                ApiFunction: "advisor"}}
+
+    b, _ := json.Marshal(s)
+
+    body := doPost(string(b))
+    fmt.Println(body)
+    
+    advisor := AdvisorInfo{}
+
+    _ = json.Unmarshal([]byte(body), &advisor)
+
+    fmt.Println(advisor)
 }

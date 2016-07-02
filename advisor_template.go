@@ -16,7 +16,8 @@ Rank                  %15d       Expenses                 $%9d
 Networth             $%15d       Net Income               $%9d
 Land                  %15d         Cashing                $%9d
 Money                $%15d       Food                      %9d
-Population            %15d         Production              %9d
+Population            %15d         Production              %9d`
+/*
 At War                %15d         Consumption             %9d
 GDI Member            %15d         Decay                   %9d
                                               Net Change              %9d
@@ -49,3 +50,17 @@ SDI                %8.0f  %7.3f%%           Tanks                $%9d
                                             Alliance/GDI             $%9d
 Total       %15d                   Land                   $%9d
                                             Corruption               $%9d`
+*/
+const ServerInfoTemplate = 
+`
+Server Information                       Round Information 
+*************************************    ***********************************
+Current Time:              %10d    Round Num:               %10d
+Reset Start:               %10d    Turn Rate:               %10d
+Reset End:                 %10d    Time Left (min):         %10d
+Countries Allowed:         %10s    Turns Left:              %10d
+
+Country Infomation
+*************************************
+Alive Count:               %10d
+`
