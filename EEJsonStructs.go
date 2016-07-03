@@ -19,6 +19,16 @@ type advisorParams struct {
     Cnum int   `json:"cnum"`
 }
 
+type pmInfoParams struct {
+    defaultParams
+    Cnum int   `json:"cnum"`
+}
+
+type marketParams struct {
+    defaultParams
+    Cnum int   `json:"cnum"`
+}
+
 type ServerInfo struct {
     Server struct {
         RoundNum int `json:"round_num"`
@@ -180,5 +190,129 @@ func (s AdvisorInfo) String() string {
                                                 0,
         s.Advisor.TechTotal,                    s.Advisor.LandUpkeep,
                                                 0)
+}
 
+type PMInfo struct {
+    PM struct {
+        BuyPrice struct {
+            TroopForces int `json:"m_tr"`
+            JetForces int `json:"m_j"`
+            TurretForces int `json:"m_tu"`
+            TankForces int `json:"m_ta"`
+            Food int `json:"m_bu"`
+            Oil int `json:"m_oil"`
+        } `json:"buy_price"`
+        Available struct {
+            TroopForces int `json:"m_tr"`
+            JetForces int `json:"m_j"`
+            TurretForces int `json:"m_tu"`
+            TankForces int `json:"m_ta"`
+            Food int `json:"m_bu"`
+            Oil int `json:"m_oil"`
+        } `json:"available"`
+        SellPrice struct {
+            SpyForces int `json:"m_spy"`
+            TroopForces int `json:"m_tr"`
+            JetForces int `json:"m_j"`
+            TurretForces int `json:"m_tu"`
+            TankForces int `json:"m_ta"`
+            Food int `json:"m_bu"`
+            Oil int `json:"m_oil"`
+        } `json:"sell_price"`
+    } `json:"PM_INFO"`
+}
+
+func (s PMInfo) String() (string) {
+    return fmt.Sprintf(PMInfoTemplate, 
+                                        s.PM.SellPrice.SpyForces,
+        s.PM.BuyPrice.TroopForces,      s.PM.SellPrice.TroopForces,       s.PM.Available.TroopForces,
+        s.PM.BuyPrice.JetForces,      s.PM.SellPrice.JetForces,       s.PM.Available.JetForces,
+        s.PM.BuyPrice.TurretForces,      s.PM.SellPrice.TurretForces,       s.PM.Available.TurretForces,
+        s.PM.BuyPrice.TankForces,      s.PM.SellPrice.TankForces,       s.PM.Available.TankForces,
+        s.PM.BuyPrice.Food,      s.PM.SellPrice.Food,       s.PM.Available.Food,
+        s.PM.BuyPrice.Oil,      s.PM.SellPrice.Oil,       s.PM.Available.Oil)
+}
+
+type PublicMarket struct {
+    Market struct {
+        BuyPrice struct {
+            TroopForces int `json:"m_tr,string"`
+            JetForces int `json:"m_j,string"`
+            TurretForces int `json:"m_tu,string"`
+            TankForces int `json:"m_ta,string"`
+            Food int `json:"m_bu,string"`
+            Oil int `json:"m_oil,string"`
+            MilitaryTech int `json:"mil,string"`
+            MedicalTech int `json:"med,string"`
+            BusinessTech int `json:"bus,string"`
+            ResidentalTech int `json:"res,string"`
+            AgricultureTech int `json:"agri,string"`
+            WarfareTech int `json:"war,string"`
+            MilitaryStrategyTech int `json:"ms,string"`
+            WeaponTech int `json:"weap,string"`
+            IndustrialTech int `json:"indy,string"`
+            SpyTech int `json:"spy,string"`
+            SDITech int `json:"sdi,string"`
+        } `json:"buy_price"`
+        Available struct {
+            TroopForces int `json:"m_tr,string"`
+            JetForces int `json:"m_j,string"`
+            TurretForces int `json:"m_tu,string"`
+            TankForces int `json:"m_ta,string"`
+            Food int `json:"m_bu,string"`
+            Oil int `json:"m_oil,string"`
+            MilitaryTech int `json:"mil,string"`
+            MedicalTech int `json:"med,string"`
+            BusinessTech int `json:"bus,string"`
+            ResidentalTech int `json:"res,string"`
+            AgricultureTech int `json:"agri,string"`
+            WarfareTech int `json:"war,string"`
+            MilitaryStrategyTech int `json:"ms,string"`
+            WeaponTech int `json:"weap,string"`
+            IndustrialTech int `json:"indy,string"`
+            SpyTech int `json:"spy,string"`
+            SDITech int `json:"sdi,string"`
+        } `json:"available"`
+        SellPrice struct {
+            TroopForces int `json:"m_tr,string"`
+            JetForces int `json:"m_j,string"`
+            TurretForces int `json:"m_tu,string"`
+            TankForces int `json:"m_ta,string"`
+            Food int `json:"m_bu,string"`
+            Oil int `json:"m_oil,string"`
+            MilitaryTech int `json:"mil,string"`
+            MedicalTech int `json:"med,string"`
+            BusinessTech int `json:"bus,string"`
+            ResidentalTech int `json:"res,string"`
+            AgricultureTech int `json:"agri,string"`
+            WarfareTech int `json:"war,string"`
+            MilitaryStrategyTech int `json:"ms,string"`
+            WeaponTech int `json:"weap,string"`
+            IndustrialTech int `json:"indy,string"`
+            SpyTech int `json:"spy,string"`
+            SDITech int `json:"sdi,string"`
+        } `json:"so_price"`
+    } `json:"MARKET"`
+}
+
+func (s PublicMarket) String() (string) {
+    return fmt.Sprintf(PublicMarketTemplate, 
+        s.Market.BuyPrice.TroopForces,      s.Market.SellPrice.TroopForces,       s.Market.Available.TroopForces,
+        s.Market.BuyPrice.JetForces,      s.Market.SellPrice.JetForces,       s.Market.Available.JetForces,
+        s.Market.BuyPrice.TurretForces,      s.Market.SellPrice.TurretForces,       s.Market.Available.TurretForces,
+        s.Market.BuyPrice.TankForces,      s.Market.SellPrice.TankForces,       s.Market.Available.TankForces,
+        s.Market.BuyPrice.Food,      s.Market.SellPrice.Food,       s.Market.Available.Food,
+        s.Market.BuyPrice.Oil,      s.Market.SellPrice.Oil,       s.Market.Available.Oil,
+
+        s.Market.BuyPrice.MilitaryTech,      s.Market.SellPrice.MilitaryTech,       s.Market.Available.MilitaryTech,
+        s.Market.BuyPrice.MedicalTech,      s.Market.SellPrice.MedicalTech,       s.Market.Available.MedicalTech,
+        s.Market.BuyPrice.BusinessTech,      s.Market.SellPrice.BusinessTech,       s.Market.Available.BusinessTech,
+        s.Market.BuyPrice.ResidentalTech,      s.Market.SellPrice.ResidentalTech,       s.Market.Available.ResidentalTech,
+        s.Market.BuyPrice.AgricultureTech,      s.Market.SellPrice.AgricultureTech,       s.Market.Available.AgricultureTech,
+        s.Market.BuyPrice.WarfareTech,      s.Market.SellPrice.WarfareTech,       s.Market.Available.WarfareTech,
+        s.Market.BuyPrice.MilitaryStrategyTech,      s.Market.SellPrice.MilitaryStrategyTech,       s.Market.Available.MilitaryStrategyTech,
+        s.Market.BuyPrice.WeaponTech,      s.Market.SellPrice.WeaponTech,       s.Market.Available.WeaponTech,
+        s.Market.BuyPrice.IndustrialTech,      s.Market.SellPrice.IndustrialTech,       s.Market.Available.IndustrialTech,
+        s.Market.BuyPrice.SpyTech,      s.Market.SellPrice.SpyTech,       s.Market.Available.SpyTech,
+        s.Market.BuyPrice.SDITech,      s.Market.SellPrice.SDITech,       s.Market.Available.SDITech)
 }

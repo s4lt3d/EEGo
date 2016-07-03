@@ -45,7 +45,7 @@ func GetServer() {
     b, _ := json.Marshal(s)
 
     body := doPost(string(b))
-    fmt.Println(body)
+    //fmt.Println(body)
     
     server := ServerInfo{}
 
@@ -67,11 +67,53 @@ func GetAdvisor(cnum int) {
     b, _ := json.Marshal(s)
 
     body := doPost(string(b))
-    fmt.Println(body)
+    //fmt.Println(body)
     
     advisor := AdvisorInfo{}
 
     _ = json.Unmarshal([]byte(body), &advisor)
 
     fmt.Println(advisor)
+}
+
+func GetPrivateMarket(cnum int) {
+    s := pmInfoParams{ 
+            Cnum: cnum,
+            defaultParams: defaultParams {
+                Username: "salted", 
+                AI_Key: "49ee125ad5e9a3b81dfb771ac0d3d2fb", 
+                Server: "ai", 
+                ApiFunction: "pm_info"}}
+
+    b, _ := json.Marshal(s)
+
+    body := doPost(string(b))
+    //fmt.Println(body)
+    
+    pminfo := PMInfo{}
+
+    _ = json.Unmarshal([]byte(body), &pminfo)
+
+    fmt.Println(pminfo)
+}
+
+func GetPublicMarket(cnum int) {
+    s := marketParams{ 
+            Cnum: cnum,
+            defaultParams: defaultParams {
+                Username: "salted", 
+                AI_Key: "49ee125ad5e9a3b81dfb771ac0d3d2fb", 
+                Server: "ai", 
+                ApiFunction: "market"}}
+
+    b, _ := json.Marshal(s)
+
+    body := doPost(string(b))
+    fmt.Println(body)
+    
+    publicmarket := PublicMarket{}
+
+    _ = json.Unmarshal([]byte(body), &publicmarket)
+
+    fmt.Println(publicmarket)
 }

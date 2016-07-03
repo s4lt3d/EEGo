@@ -50,6 +50,9 @@ SDI                %8d   %7.3f%%           Tanks               $%9d
 Total       %15d                 Land                     $%9d
                                             Corruption               $%9d`
 
+
+
+//##########################################################################
 const ServerInfoTemplate = 
 `
 Server Information                       Round Information 
@@ -63,3 +66,44 @@ Country Infomation
 *************************************
 Alive Count:               %10d
 `
+
+//##########################################################################
+const PMInfoTemplate = 
+`
+                                Private Market 
+*******************************************************************************
+Units                   Buy Price              Sell Price             Available
+*******************************************************************************
+Spies                          0              %10d                      0
+Troops                %10d              %10d             %10d
+Jets                  %10d              %10d             %10d
+Turrets               %10d              %10d             %10d
+Tanks                 %10d              %10d             %10d
+Food                  %10d              %10d             %10d
+Oil                   %10d              %10d             %10d
+`   
+const PublicMarketTemplate = 
+`
+                                Public Market 
+*******************************************************************************
+Units                   Buy Price              Sell Price             Available
+*******************************************************************************
+Troops                %10d              %10d             %10d
+Jets                  %10d              %10d             %10d
+Turrets               %10d              %10d             %10d
+Tanks                 %10d              %10d             %10d
+Food                  %10d              %10d             %10d
+Oil                   %10d              %10d             %10d
+******************************************************************************
+Military Tech         %10d              %10d             %10d
+Medical Tech          %10d              %10d             %10d
+Business Tech         %10d              %10d             %10d
+Residental Tech       %10d              %10d             %10d
+Agriculture Tech      %10d              %10d             %10d
+Warfare Tech          %10d              %10d             %10d
+MilitaryStrategy Tech %10d              %10d             %10d
+Weapon Tech           %10d              %10d             %10d
+Industrial Tech       %10d              %10d             %10d
+Spy Tech              %10d              %10d             %10d
+SDI Tech              %10d              %10d             %10d
+`   
