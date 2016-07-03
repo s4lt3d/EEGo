@@ -16,8 +16,7 @@ Rank                  %15d       Expenses                 $%9d
 Networth             $%15d       Net Income               $%9d
 Land                  %15d         Cashing                $%9d
 Money                $%15d       Food                      %9d
-Population            %15d         Production              %9d`
-/*
+Population            %15d         Production              %9d
 At War                %15d         Consumption             %9d
 GDI Member            %15d         Decay                   %9d
                                               Net Change              %9d
@@ -36,21 +35,21 @@ Unused Land           %15d       Turrets                   %9d
                                             Tanks                     %9d
 Technology                                  Nuclear Missiles          %9d
 *************************************       Chemical Missiles         %9d
-Military           %8.0f  %7.3f%%       Cruise Missiles           %9d
-Medical            %8.0f  %7.3f%%       
-Business           %8.0f  %7.3f%%       Expense Breakdown
-Residential        %8.0f  %7.3f%%       ***********************************
-Agricultural       %8.0f  %7.3f%%       Expenses                 $%9d
-Warfare            %8.0f  %7.3f%%         Military               $%9d
-Military Strategy  %8.0f  %7.3f%%           Spies                $%9d
-Weapons            %8.0f  %7.3f%%           Troops               $%9d
-Industrial         %8.0f  %7.3f%%           Jets                 $%9d
-Spy                %8.0f  %7.3f%%           Turrets              $%9d
-SDI                %8.0f  %7.3f%%           Tanks                $%9d
+Military           %8d   %7.3f%%      Cruise Missiles           %9d
+Medical            %8d   %7.3f%%       
+Business           %8d   %7.3f%%       Expense Breakdown
+Residential        %8d   %7.3f%%       **********************************
+Agricultural       %8d   %7.3f%%       Expenses                $%9d
+Warfare            %8d   %7.3f%%         Military              $%9d
+Military Strategy  %8d   %7.3f%%           Spies               $%9d
+Weapons            %8d   %7.3f%%           Troops              $%9d
+Industrial         %8d   %7.3f%%           Jets                $%9d
+Spy                %8d   %7.3f%%           Turrets             $%9d
+SDI                %8d   %7.3f%%           Tanks               $%9d
                                             Alliance/GDI             $%9d
-Total       %15d                   Land                   $%9d
+Total       %15d                 Land                     $%9d
                                             Corruption               $%9d`
-*/
+
 const ServerInfoTemplate = 
 `
 Server Information                       Round Information 

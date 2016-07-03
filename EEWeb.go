@@ -30,7 +30,7 @@ func doPost(payload string) string  {
     defer resp.Body.Close()
 
     body, _ := ioutil.ReadAll(resp.Body)
-    fmt.Println("response Body:", string(body))
+  //  fmt.Println("response Body:", string(body))
     return string(body)
 }
 
