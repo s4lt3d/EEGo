@@ -29,6 +29,29 @@ type marketParams struct {
     Cnum int   `json:"cnum"`
 }
 
+type exploreParams struct {
+    defaultParams
+    Cnum int   `json:"cnum"`
+    Turns int  `json:"turns"`
+}
+
+type buildParams struct {
+    defaultParams
+    Cnum int   `json:"cnum"`
+    build `json:"build"`
+}
+
+type build struct {
+    EnterprizeZones int `json:"ent"`
+    ResidentialZones int `json:"res"`
+    IndustrialZones int `json:"indy"`
+    MilitaryZones int `json:"mb"`
+    ResearchZones int `json:"lab"`
+    FarmZones int `json:"farm"`
+    OilZones int `json:"rig"`
+    ConstructionZones int `json:"cs"`
+}
+
 type ServerInfo struct {
     Server struct {
         RoundNum int `json:"round_num"`
@@ -315,4 +338,43 @@ func (s PublicMarket) String() (string) {
         s.Market.BuyPrice.IndustrialTech,      s.Market.SellPrice.IndustrialTech,       s.Market.Available.IndustrialTech,
         s.Market.BuyPrice.SpyTech,      s.Market.SellPrice.SpyTech,       s.Market.Available.SpyTech,
         s.Market.BuyPrice.SDITech,      s.Market.SellPrice.SDITech,       s.Market.Available.SDITech)
+}
+
+type Turn struct {
+    Turns struct{
+        Id struct {
+            Taxrevenue int `json:"taxrevenue"`
+            Foodproduced int `json:"foodproduced"`
+            Popgrowth int `json:"popgrowth"`
+            Foodconsumed int `json:"foodconsumed"`
+            Expenses int `json:"expenses"`
+            Troopsproduced int `json:"troopsproduced"`
+            Jetsproduced int `json:"jetsproduced"`
+            Turretsproduced int `json:"turretsproduced"`
+            Tanksproduced int `json:"tanksproduced"`
+            Spiesproduced int `json:"spiesproduced"`
+        } 
+    } `json:"items"`
+}
+
+type BuildTurn struct {
+    Build struct {
+        Built struct {
+            EnterprizeZones int `json:"ent"`
+            ResidentialZones int `json:"res"`
+            IndustrialZones int `json:"indy"`
+            MilitaryZones int `json:"mb"`
+            ResearchZones int `json:"lab"`
+            FarmZones int `json:"farm"`
+            OilZones int `json:"rig"`
+            ConstructionZones int `json:"cs"`
+        } `json:"built"`
+
+        Cost int `json:"cost"`
+        BuildingsPerTurn int `json:"bpt"`
+        TechPerTurn int `json:"tpt"`
+
+        turns []Turn 
+        
+    } `json:"BUILD"`
 }
