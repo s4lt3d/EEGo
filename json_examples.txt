@@ -9,3 +9,5 @@ Explore 1 turn
 
 {"EXPLORE":{"new_land":60,"build_cost":2040,"explore_rate":45,"turns":{"1":{"taxrevenue":6166,"foodproduced":48,"popgrowth":40,"foodconsumed":37,"expenses":702,"troopsproduced":0,"jetsproduced":0,"turretsproduced":0,"tanksproduced":0,"spiesproduced":0}},"tpt":3}}
 
+Cash 1 turn
+{"CASH":{"turns":{"1":{"taxrevenue":5414,"foodproduced":40,"popgrowth":40,"foodconsumed":28,"expenses":726,"troopsproduced":0,"jetsproduced":0,"turretsproduced":0,"tanksproduced":0,"spiesproduced":0}}}}

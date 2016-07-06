@@ -1,16 +1,12 @@
 package main
 
-import "fmt"
-
 //import "fmt"
 
 func main() {
 	GetServer()
-	GetAdvisor(36)
-	GetPrivateMarket(36)
-	GetPublicMarket(36)
-	// Build(36, 0,0,0,0,0,0,0,33)
+	GetAdvisor(61)
+	GetPrivateMarket(61)
+	GetPublicMarket(61)
+	WebCash(61, 1)
 
-	Explore(36, 30)
-	fmt.Println(AdvisorTemplate)
 }
