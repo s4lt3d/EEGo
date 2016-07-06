@@ -64,6 +64,28 @@ type techParams struct {
 	tech `json:"tech"`
 }
 
+type pmBuyParams struct {
+	defaultParams
+	Cnum int     `json:"cnum"`
+	Buy  pmItems `json:"buy"`
+}
+
+type pmSellParams struct {
+	defaultParams
+	Cnum int     `json:"cnum"`
+	Sell pmItems `json:"sell"`
+}
+
+type pmItems struct {
+	TroopForces  int `json:"m_tr"`
+	JetForces    int `json:"m_j"`
+	TurretForces int `json:"m_tu"`
+	TankForces   int `json:"m_ta"`
+	Food         int `json:"m_bu"`
+	Oil          int `json:"m_oil"`
+	SpyForces    int `json:"m_spy"`
+}
+
 type tech struct {
 	MilitaryTech         int `json:"t_mil"`
 	MedicalTech          int `json:"t_med"`

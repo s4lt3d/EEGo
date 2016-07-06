@@ -3,7 +3,7 @@
 // A collection of functions to get data in and out of the ee server
 // ****************************************************************************
 // TO DO
-// BUY, SELL to market
+// BUY, SELL to markets
 // Parse turns
 // get items on market
 // Test all functions!
@@ -289,4 +289,65 @@ func WebTech(cnum int, militaryTech int, medicalTech int, businessTech int,
 	_ = json.Unmarshal([]byte(body), &buildTurn)
 
 	fmt.Println(buildTurn)
+}
+
+func WebPMBuy(cnum int, troopForces int, jetForces int, turretForces int, tankForces int, food int, oil int) {
+	s := pmBuyParams{
+		Cnum: cnum,
+		Buy: pmItems{
+			TroopForces:  troopForces,
+			JetForces:    jetForces,
+			TurretForces: turretForces,
+			TankForces:   tankForces,
+			Food:         food,
+			Oil:          oil},
+
+		defaultParams: defaultParams{
+			Username:    "salted",
+			AIKey:       "49ee125ad5e9a3b81dfb771ac0d3d2fb",
+			Server:      "ai",
+			ApiFunction: "pm"}}
+
+	b, _ := json.Marshal(s)
+	fmt.Println(b)
+	body, _ := doPost(string(b))
+	//  body := `{"BUILD":{"built":{"res":5,"cs":1},"cost":11160,"bpt":5,"turns":{"1":{"taxrevenue":7000,"foodproduced":46,"popgrowth":13,"foodconsumed":30,"expenses":438,"troopsproduced":0,"jetsproduced":0,"turretsproduced":0,"tanksproduced":0,"spiesproduced":0},"2":{"taxrevenue":6098,"foodproduced":46,"popgrowth":9,"foodconsumed":31,"expenses":438,"troopsproduced":0,"jetsproduced":0,"turretsproduced":0,"tanksproduced":0,"spiesproduced":0}},"tpt":3}}`
+	fmt.Println(body)
+
+	//buildTurn := BuildTurn{}
+
+	//_ = json.Unmarshal([]byte(body), &buildTurn)
+
+	//fmt.Println(buildTurn)
+}
+
+func WebPMSell(cnum int, troopForces int, jetForces int, turretForces int, tankForces int, spyForces int, food int, oil int) {
+	s := pmSellParams{
+		Cnum: cnum,
+		Sell: pmItems{
+			TroopForces:  troopForces,
+			JetForces:    jetForces,
+			TurretForces: turretForces,
+			TankForces:   tankForces,
+			SpyForces:    spyForces,
+			Food:         food,
+			Oil:          oil},
+
+		defaultParams: defaultParams{
+			Username:    "salted",
+			AIKey:       "49ee125ad5e9a3b81dfb771ac0d3d2fb",
+			Server:      "ai",
+			ApiFunction: "pm"}}
+
+	b, _ := json.Marshal(s)
+	fmt.Println(b)
+	body, _ := doPost(string(b))
+	//  body := `{"BUILD":{"built":{"res":5,"cs":1},"cost":11160,"bpt":5,"turns":{"1":{"taxrevenue":7000,"foodproduced":46,"popgrowth":13,"foodconsumed":30,"expenses":438,"troopsproduced":0,"jetsproduced":0,"turretsproduced":0,"tanksproduced":0,"spiesproduced":0},"2":{"taxrevenue":6098,"foodproduced":46,"popgrowth":9,"foodconsumed":31,"expenses":438,"troopsproduced":0,"jetsproduced":0,"turretsproduced":0,"tanksproduced":0,"spiesproduced":0}},"tpt":3}}`
+	fmt.Println(body)
+
+	//buildTurn := BuildTurn{}
+
+	//_ = json.Unmarshal([]byte(body), &buildTurn)
+
+	//fmt.Println(buildTurn)
 }
