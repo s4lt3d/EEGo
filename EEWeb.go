@@ -2,6 +2,12 @@
 // EEWeb.go
 // A collection of functions to get data in and out of the ee server
 // ****************************************************************************
+// TO DO
+// BUY, SELL to market
+// Parse turns
+// get items on market
+// Test all functions!
+
 package main
 
 import (
