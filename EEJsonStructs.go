@@ -315,65 +315,31 @@ func (s PMInfo) String() string {
 		s.PM.BuyPrice.Oil, s.PM.SellPrice.Oil, s.PM.Available.Oil)
 }
 
+type MarketItems struct {
+	TroopForces          int `json:"m_tr,string"`
+	JetForces            int `json:"m_j,string"`
+	TurretForces         int `json:"m_tu,string"`
+	TankForces           int `json:"m_ta,string"`
+	Food                 int `json:"m_bu,string"`
+	Oil                  int `json:"m_oil,string"`
+	MilitaryTech         int `json:"mil,string"`
+	MedicalTech          int `json:"med,string"`
+	BusinessTech         int `json:"bus,string"`
+	ResidentalTech       int `json:"res,string"`
+	AgricultureTech      int `json:"agri,string"`
+	WarfareTech          int `json:"war,string"`
+	MilitaryStrategyTech int `json:"ms,string"`
+	WeaponTech           int `json:"weap,string"`
+	IndustrialTech       int `json:"indy,string"`
+	SpyTech              int `json:"spy,string"`
+	SDITech              int `json:"sdi,string"`
+}
+
 type PublicMarket struct {
 	Market struct {
-		BuyPrice struct {
-			TroopForces          int `json:"m_tr,string"`
-			JetForces            int `json:"m_j,string"`
-			TurretForces         int `json:"m_tu,string"`
-			TankForces           int `json:"m_ta,string"`
-			Food                 int `json:"m_bu,string"`
-			Oil                  int `json:"m_oil,string"`
-			MilitaryTech         int `json:"mil,string"`
-			MedicalTech          int `json:"med,string"`
-			BusinessTech         int `json:"bus,string"`
-			ResidentalTech       int `json:"res,string"`
-			AgricultureTech      int `json:"agri,string"`
-			WarfareTech          int `json:"war,string"`
-			MilitaryStrategyTech int `json:"ms,string"`
-			WeaponTech           int `json:"weap,string"`
-			IndustrialTech       int `json:"indy,string"`
-			SpyTech              int `json:"spy,string"`
-			SDITech              int `json:"sdi,string"`
-		} `json:"buy_price"`
-		Available struct {
-			TroopForces          int `json:"m_tr,string"`
-			JetForces            int `json:"m_j,string"`
-			TurretForces         int `json:"m_tu,string"`
-			TankForces           int `json:"m_ta,string"`
-			Food                 int `json:"m_bu,string"`
-			Oil                  int `json:"m_oil,string"`
-			MilitaryTech         int `json:"mil,string"`
-			MedicalTech          int `json:"med,string"`
-			BusinessTech         int `json:"bus,string"`
-			ResidentalTech       int `json:"res,string"`
-			AgricultureTech      int `json:"agri,string"`
-			WarfareTech          int `json:"war,string"`
-			MilitaryStrategyTech int `json:"ms,string"`
-			WeaponTech           int `json:"weap,string"`
-			IndustrialTech       int `json:"indy,string"`
-			SpyTech              int `json:"spy,string"`
-			SDITech              int `json:"sdi,string"`
-		} `json:"available"`
-		SellPrice struct {
-			TroopForces          int `json:"m_tr,string"`
-			JetForces            int `json:"m_j,string"`
-			TurretForces         int `json:"m_tu,string"`
-			TankForces           int `json:"m_ta,string"`
-			Food                 int `json:"m_bu,string"`
-			Oil                  int `json:"m_oil,string"`
-			MilitaryTech         int `json:"mil,string"`
-			MedicalTech          int `json:"med,string"`
-			BusinessTech         int `json:"bus,string"`
-			ResidentalTech       int `json:"res,string"`
-			AgricultureTech      int `json:"agri,string"`
-			WarfareTech          int `json:"war,string"`
-			MilitaryStrategyTech int `json:"ms,string"`
-			WeaponTech           int `json:"weap,string"`
-			IndustrialTech       int `json:"indy,string"`
-			SpyTech              int `json:"spy,string"`
-			SDITech              int `json:"sdi,string"`
-		} `json:"so_price"`
+		BuyPrice  MarketItems `json:"buy_price"`
+		Available MarketItems `json:"available"`
+		SellPrice MarketItems `json:"so_price"`
 	} `json:"MARKET"`
 }
 
